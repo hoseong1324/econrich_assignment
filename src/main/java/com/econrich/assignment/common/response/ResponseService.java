@@ -11,7 +11,7 @@ public class ResponseService {
     // 단일 결과 리턴
     public <T> SingleResult<T> getSingleResult(T data) {
         SingleResult<T> result = new SingleResult<>();
-        result.setSingleData(data);
+        result.setData(data);
         setSuccessResult(result);
         return result;
     }
@@ -19,7 +19,7 @@ public class ResponseService {
     // 복수 결과 리턴
     public <T> ListResult<T> getListResult(List<T> list) {
         ListResult<T> result = new ListResult<>();
-        result.setListData(list);
+        result.setData(list);
         setSuccessResult(result);
         return result;
     }
