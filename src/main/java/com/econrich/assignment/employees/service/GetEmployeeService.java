@@ -1,11 +1,13 @@
 package com.econrich.assignment.employees.service;
 
-import com.econrich.assignment.employees.dto.EmployeeDto;
+import com.econrich.assignment.common.exception.CustomException;
+import com.econrich.assignment.common.exception.ExceptionCode;
+import com.econrich.assignment.employees.dto.EmployeesDto;
 import com.econrich.assignment.employees.entity.Employees;
 import com.econrich.assignment.employees.repo.EmployeesRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,38 +18,40 @@ public class GetEmployeeService {
 
     private final EmployeesRepository employeesRepository;
 
-    public List<EmployeeDto.Summary> getEmplyeesList(){
+    @Transactional(readOnly = true)
+    public List<EmployeesDto.EmployeesSummary> executeList(){
         return employeesRepository.findAll().stream().map(
-                employees -> EmployeeDto.Summary.builder()
+                employees -> EmployeesDto.EmployeesSummary.builder()
                         .employeeId(employees.getEmployeeId())
                         .firstName(employees.getFirstName())
                         .lastName(employees.getLastName())
                         .email(employees.getEmail())
                         .phoneNumber(employees.getPhoneNumber())
                         .hireDate(employees.getHireDate())
-                        .jobId(employees.getEmployeeId())
+                        .jobId(employees.getJobs().getJobId())
                         .salary(employees.getSalary())
                         .commissionPct(employees.getCommissionPct())
-                        .managerId(employees.getManagerId() != null ? employees.getManagerId().getEmployeeId() : null)
-                        .departmentId(employees.getEmployeeId())
+                        .managerId(employees.getManager() != null ? employees.getManager().getEmployeeId() : null)
+                        .departmentId(employees.getDepartments().getDepartmentId())
                         .build()
         ).collect(Collectors.toList());
     }
 
-    public EmployeeDto.Summary getEmployee(Long employeeId){
+    @Transactional(readOnly = true)
+    public EmployeesDto.EmployeesSummary execute(int employeeId){
         Employees employees = employeesRepository.findByEmployeeId(employeeId)
-                .orElseThrow(() -> new EntityNotFoundException("해당 사원이 존재하지 않습니다."));
-        return EmployeeDto.Summary.builder()
+                .orElseThrow(() -> new CustomException(ExceptionCode.EMPLOYEES_NOT_FOUND));
+        return EmployeesDto.EmployeesSummary.builder()
                 .employeeId(employees.getEmployeeId())
                 .firstName(employees.getFirstName())
                 .lastName(employees.getLastName())
                 .email(employees.getEmail())
                 .phoneNumber(employees.getPhoneNumber())
                 .hireDate(employees.getHireDate())
-                .jobId(employees.getEmployeeId())
+                .jobId(employees.getJobs().getJobId())
                 .salary(employees.getSalary())
                 .commissionPct(employees.getCommissionPct())
-                .managerId(employees.getManagerId().getEmployeeId())
+                .managerId(employees.getManager().getEmployeeId())
                 .departmentId(employees.getEmployeeId())
                 .build();
     }

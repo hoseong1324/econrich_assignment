@@ -14,9 +14,9 @@ public class Departments {
     @Column(length = 30)
     private String departmentName;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(referencedColumnName = "manager_id", name = "manager_id")
-    private Employees managerId;
+    @JoinColumn( name = "manager_id")
+    private Employees employees;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "location_id")
-    private Locations locationId;
+    private Locations locations;
 }

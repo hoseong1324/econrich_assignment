@@ -21,5 +21,5 @@ public class Locations {
     private String stateProvince;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
-    private Countries countryId;
+    private Countries countries;
 }

@@ -2,11 +2,13 @@ package com.econrich.assignment.jobs.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Entity
 @Getter
+@Setter
 @Table(name ="jobs")
 public class Jobs {
     @Id
@@ -18,4 +20,5 @@ public class Jobs {
     private BigDecimal minSalary;
     @Column(precision = 8)
     private BigDecimal maxSalary;
+
 }

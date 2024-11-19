@@ -1,5 +1,8 @@
 package com.econrich.assignment.common.response;
 
+import com.econrich.assignment.common.exception.CustomException;
+import com.econrich.assignment.common.exception.CustomUniversalException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,10 +34,28 @@ public class ResponseService {
         return result;
     }
 
-    // 실패 결과만 처리
-    public CommonResult getFailResult() {
+
+    public CommonResult getServerErrorResult(RuntimeException exception) {
         CommonResult result = new CommonResult();
-        setFailResult(result);
+        result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
+        result.setCode(500);
+        result.setMessage(exception.getMessage());
+        return result;
+    }
+
+    public CommonResult getCustomErrorResult(CustomException exception) {
+        CommonResult result = new CommonResult();
+        result.setStatus(exception.getExceptionCode().getStatus().getReasonPhrase());
+        result.setCode(exception.getExceptionCode().getStatus().value());
+        result.setMessage(exception.getExceptionCode().getMessage());
+        return result;
+    }
+
+    public CommonResult getCustomUniversalResult(CustomUniversalException exception) {
+        CommonResult result = new CommonResult();
+        result.setStatus(exception.getUniversalCode().getHttpStatus().getReasonPhrase());
+        result.setCode(exception.getUniversalCode().getHttpStatus().value());
+        result.setMessage(exception.getUniversalCode().getMessage());
         return result;
     }
 
@@ -44,9 +65,4 @@ public class ResponseService {
         result.setCode(CommonResponse.SUCCESS.getCode());
     }
 
-    // API 요청 실패 시 응답 모델을 실패 데이터로 세팅
-    private void setFailResult(CommonResult result) {
-        result.setStatus(CommonResponse.FAIL.getStatus());
-        result.setCode(CommonResponse.FAIL.getCode());
-    }
 }
