@@ -1,6 +1,5 @@
 package com.econrich.assignment.jobs.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,8 +20,6 @@ public class JobHistoryDto {
 
     @Getter
     public static class UpdateJobs{
-        @NotBlank(message = "필수 항목이 누락되었습니다.")
-        private String jobId;
         @Size(max = 35)
         private String jobTitle;
         private Integer minSalary;
@@ -31,8 +28,6 @@ public class JobHistoryDto {
 
     @Getter
     public static class UpdateSalaryByPercent{
-        @NotBlank
-        private String jobId;
         private Integer minSalaryPercent;
         private Integer maxSalaryPercent;
     }

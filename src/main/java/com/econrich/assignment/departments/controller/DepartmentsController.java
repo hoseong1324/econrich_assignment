@@ -19,7 +19,7 @@ public class DepartmentsController {
 
     @GetMapping
     public CommonResult getDepartments(){
-        return responseService.getListResult(getDepartmentsService.executeList());
+        return responseService.getListResult(getDepartmentsService.executeForList());
     }
 
     @GetMapping("/{departmentId}")

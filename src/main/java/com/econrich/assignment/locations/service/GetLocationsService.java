@@ -18,7 +18,7 @@ public class GetLocationsService {
 
     private final LocationsRepository locationsRepository;
 
-    public List<LocationsDto.LocationsSummary> excuteList(){
+    public List<LocationsDto.LocationsSummary> excuteForList(){
         return locationsRepository.findAll().stream().map(locations ->
                 LocationsDto.LocationsSummary.builder()
                         .locationId(locations.getLocationId())

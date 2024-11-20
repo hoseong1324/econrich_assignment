@@ -19,7 +19,7 @@ public class GetEmployeeService {
     private final EmployeesRepository employeesRepository;
 
     @Transactional(readOnly = true)
-    public List<EmployeesDto.EmployeesSummary> executeList(){
+    public List<EmployeesDto.EmployeesSummary> executeForList(){
         return employeesRepository.findAll().stream().map(
                 employees -> EmployeesDto.EmployeesSummary.builder()
                         .employeeId(employees.getEmployeeId())

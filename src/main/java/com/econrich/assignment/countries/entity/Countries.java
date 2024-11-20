@@ -15,5 +15,5 @@ public class Countries {
     private String countryName;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")
-    private Regions regionId;
+    private Regions regions;
 }

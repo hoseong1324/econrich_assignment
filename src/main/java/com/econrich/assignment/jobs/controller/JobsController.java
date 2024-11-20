@@ -20,18 +20,18 @@ public class JobsController {
 
     @GetMapping("/history/{employeeId}")
     public CommonResult getJobsHistory(@PathVariable int employeeId) {
-        return responseService.getListResult(getJobsService.historyExecute(employeeId));
+        return responseService.getListResult(getJobsService.executeForHistory(employeeId));
     }
 
-    @PatchMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CommonResult updateSalary(@Valid @RequestBody JobHistoryDto.UpdateJobs form){
-        patchJobsService.execute(form);
+    @PatchMapping(value = "/{jobId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CommonResult updateSalary(@PathVariable String jobId, @Valid @RequestBody JobHistoryDto.UpdateJobs form){
+        patchJobsService.execute(jobId, form);
         return responseService.getSuccessResult();
     }
 
-    @PatchMapping(value = "/salary", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CommonResult updateSalaryByPercent(@RequestBody JobHistoryDto.UpdateSalaryByPercent form){
-        patchJobsService.executeForPercentSalary(form);
+    @PatchMapping(value = "/{jobId}/salary", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CommonResult updateSalaryByPercent(@PathVariable String jobId, @RequestBody JobHistoryDto.UpdateSalaryByPercent form){
+        patchJobsService.executeForPercentSalary(jobId, form);
         return responseService.getSuccessResult();
     }
 }

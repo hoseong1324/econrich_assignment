@@ -22,17 +22,17 @@ public class EmployeesController {
 
 
     @GetMapping
-    public CommonResult getEmployees(){
-        return responseService.getListResult(getEmployeeService.executeList());
+    public CommonResult getEmployees() {
+        return responseService.getListResult(getEmployeeService.executeForList());
     }
 
     @GetMapping("/{employeeId}")
-    public CommonResult getEmployee(@PathVariable int employeeId){
+    public CommonResult getEmployee(@PathVariable int employeeId) {
         return responseService.getSingleResult(getEmployeeService.execute(employeeId));
     }
 
     @PatchMapping(value = "/{employeeId}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CommonResult patchEmployee(@PathVariable int employeeId, @Valid @RequestBody EmployeesDto.UpdateForm form){
+    public CommonResult patchEmployee(@PathVariable int employeeId, @Valid @RequestBody EmployeesDto.UpdateForm form) {
         patchEmployeeService.execute(employeeId, form);
         return responseService.getSuccessResult();
     }

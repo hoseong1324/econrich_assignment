@@ -18,7 +18,7 @@ public class LocationsController {
 
     @GetMapping
     public CommonResult getLocations(){
-        return responseService.getListResult(getLocationsService.excuteList());
+        return responseService.getListResult(getLocationsService.excuteForList());
     }
 
     @GetMapping("/{locationId}")

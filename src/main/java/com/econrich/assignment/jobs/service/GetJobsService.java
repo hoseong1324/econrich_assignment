@@ -18,7 +18,7 @@ public class GetJobsService {
     private final JobHistoryRepository jobHistoryRepository;
 
     @Transactional(readOnly = true)
-    public List<JobHistoryDto.JobHistorySummary> historyExecute(int employeeId) {
+    public List<JobHistoryDto.JobHistorySummary> executeForHistory(int employeeId) {
         return jobHistoryRepository.findAllByEmployeeId(employeeId).stream().map(
                 history -> JobHistoryDto.JobHistorySummary.builder()
                         .employeeId(history.getEmbeddableJobHistory().getEmployees().getEmployeeId())

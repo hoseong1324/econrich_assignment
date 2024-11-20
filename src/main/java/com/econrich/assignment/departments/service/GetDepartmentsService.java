@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class GetDepartmentsService {
     private final DepartmentsRepository departmentsRepository;
 
-    public List<DepartmentsDto.DepartmentsSummary> executeList() {
+    public List<DepartmentsDto.DepartmentsSummary> executeForList() {
         return departmentsRepository.findAll().stream().map(departments ->
                 DepartmentsDto.DepartmentsSummary.builder()
                         .departmentId(departments.getDepartmentId())
