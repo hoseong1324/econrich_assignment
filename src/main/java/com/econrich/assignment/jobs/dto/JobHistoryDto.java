@@ -3,6 +3,7 @@ package com.econrich.assignment.jobs.dto;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
@@ -19,6 +20,7 @@ public class JobHistoryDto {
     }
 
     @Getter
+    @Setter
     public static class UpdateJobs{
         @Size(max = 35)
         private String jobTitle;
@@ -27,6 +29,7 @@ public class JobHistoryDto {
     }
 
     @Getter
+    @Setter
     public static class UpdateSalaryByPercent{
         private Integer minSalaryPercent;
         private Integer maxSalaryPercent;

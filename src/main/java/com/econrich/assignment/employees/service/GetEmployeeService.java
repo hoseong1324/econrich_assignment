@@ -32,7 +32,7 @@ public class GetEmployeeService {
                         .salary(employees.getSalary())
                         .commissionPct(employees.getCommissionPct())
                         .managerId(employees.getManager() != null ? employees.getManager().getEmployeeId() : null)
-                        .departmentId(employees.getDepartments().getDepartmentId())
+                        .departmentId(employees.getDepartments() != null ? employees.getDepartments().getDepartmentId() : null)
                         .build()
         ).collect(Collectors.toList());
     }
@@ -51,8 +51,8 @@ public class GetEmployeeService {
                 .jobId(employees.getJobs().getJobId())
                 .salary(employees.getSalary())
                 .commissionPct(employees.getCommissionPct())
-                .managerId(employees.getManager().getEmployeeId())
-                .departmentId(employees.getEmployeeId())
+                .managerId(employees.getManager() != null ? employees.getManager().getEmployeeId() : null)
+                .departmentId(employees.getDepartments() != null ? employees.getDepartments().getDepartmentId() : null)
                 .build();
     }
 }

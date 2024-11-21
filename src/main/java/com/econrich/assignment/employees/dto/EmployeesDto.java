@@ -23,7 +23,7 @@ public class EmployeesDto {
         private BigDecimal salary;
         private BigDecimal commissionPct;
         private Integer managerId;
-        private int departmentId;
+        private Integer departmentId;
     }
 
     @Getter
