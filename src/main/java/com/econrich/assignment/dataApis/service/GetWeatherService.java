@@ -50,7 +50,7 @@ public class GetWeatherService {
                 .baseUrl("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0")
                 .uriBuilderFactory(factory)
                 .build();
-
+        LocalDateTime now = LocalDateTime.now();
         WeatherDto.ReturnWeatherApi.Response.Body.Items items = Objects.requireNonNull(webClient.get()
                         .uri(uriBuilder ->
                                 uriBuilder.path("/getUltraSrtNcst")
@@ -58,8 +58,8 @@ public class GetWeatherService {
                                         .queryParam("numOfRows", 10)
                                         .queryParam("pageNo", 1)
                                         .queryParam("dataType", "JSON")
-                                        .queryParam("base_date", LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd")))
-                                        .queryParam("base_time", LocalDateTime.now().getHour() + "00")
+                                        .queryParam("base_date", now.format(DateTimeFormatter.ofPattern("yyyyMMdd")))
+                                        .queryParam("base_time", now.format(DateTimeFormatter.ofPattern("HH")) + "00")
                                         .queryParam("nx", koreaLocations.getGridX())
                                         .queryParam("ny", koreaLocations.getGridY())
                                         .build())
