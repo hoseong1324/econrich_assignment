@@ -45,7 +45,7 @@ public class ResponseService {
 
     public CommonResult getCustomErrorResult(CustomException exception) {
         CommonResult result = new CommonResult();
-        result.setStatus(exception.getExceptionCode().getStatus().getReasonPhrase());
+        result.setStatus(exception.getExceptionCode().name() + " : " +  exception.getExceptionCode().getStatus().getReasonPhrase());
         result.setCode(exception.getExceptionCode().getStatus().value());
         result.setMessage(exception.getExceptionCode().getMessage());
         return result;
