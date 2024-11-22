@@ -1,10 +1,10 @@
 ### econrich assignment
 
-###
-java17 
-springBoot 3.2.11
-AWS EC2 - Ubuntu 22.04.5 LTS 
-AWS RDS - mySql 8.0.2
+### env   
+java17     
+springBoot 3.2.11    
+AWS EC2 - Ubuntu 22.04.5 LTS    
+AWS RDS - mySql 8.0.2   
 
 ### domain & port
 http://2hoddy.com:8080
