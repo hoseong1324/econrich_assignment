@@ -50,7 +50,7 @@ public class PatchEmployeeService {
         }
         if (form.getManagerId() != null) {
             employees.setManager(employeesRepository.findById(form.getManagerId())
-                    .orElseThrow(() -> new CustomException(ExceptionCode.EMPLOYEES_NOT_FOUND)));
+                    .orElseThrow(() -> new CustomException(ExceptionCode.MANAGER_NOT_FOUND)));
         }
         if (form.getDepartmentId() != null) {
             employees.setDepartments(departmentsRepository.findById(form.getDepartmentId())
