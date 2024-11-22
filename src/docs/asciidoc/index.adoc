@@ -201,6 +201,5 @@ include::{snippets}/data-apis-controller-test/get-weather/response-body.adoc[]
 .response-field
 include::{snippets}/data-apis-controller-test/get-weather/response-fields.adoc[]
 
-
-
-
+== Error
+include::{snippets}/exception-code/exception-code.adoc[]

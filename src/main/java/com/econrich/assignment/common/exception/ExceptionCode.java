@@ -12,7 +12,7 @@ public enum ExceptionCode {
     NOT_VALID_METHOD_ARGUMENT(HttpStatus.BAD_REQUEST, "유효하지 않은 인자입니다."),
     EMPLOYEES_NOT_FOUND(HttpStatus.BAD_REQUEST, "존재하지 않는 직원입니다."),
     JOBS_NOT_FOUND(HttpStatus.BAD_REQUEST, "존재하지 않는 직업입니다."),
-    DEPARTMENTS_NOT_FOUNT(HttpStatus.BAD_REQUEST, "존재하지 않는 부서입니다."),
+    DEPARTMENTS_NOT_FOUND(HttpStatus.BAD_REQUEST, "존재하지 않는 부서입니다."),
     LOCATIONS_NOT_FOUND(HttpStatus.BAD_REQUEST, "존재하지 않는 지역입니다."),
     COUNTRIES_NOT_FOUND(HttpStatus.BAD_REQUEST, "존재하지 않는 국가입니다.");
 

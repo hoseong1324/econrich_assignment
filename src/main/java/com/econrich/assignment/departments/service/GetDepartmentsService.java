@@ -29,7 +29,7 @@ public class GetDepartmentsService {
 
     public DepartmentsDto.DepartmentsSummary execute(int departmentId) {
         Departments departments = departmentsRepository.findById(departmentId)
-                .orElseThrow(() -> new CustomException(ExceptionCode.DEPARTMENTS_NOT_FOUNT));
+                .orElseThrow(() -> new CustomException(ExceptionCode.DEPARTMENTS_NOT_FOUND));
         return DepartmentsDto.DepartmentsSummary.builder()
                 .departmentId(departments.getDepartmentId())
                 .departmentName(departments.getDepartmentName())

@@ -54,7 +54,7 @@ public class PatchEmployeeService {
         }
         if (form.getDepartmentId() != null) {
             employees.setDepartments(departmentsRepository.findById(form.getDepartmentId())
-                    .orElseThrow(() -> new CustomException(ExceptionCode.DEPARTMENTS_NOT_FOUNT)));
+                    .orElseThrow(() -> new CustomException(ExceptionCode.DEPARTMENTS_NOT_FOUND)));
         }
     }
 }
