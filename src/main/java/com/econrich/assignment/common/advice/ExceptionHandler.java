@@ -18,23 +18,23 @@ public class ExceptionHandler {
     private final ResponseService responseService;
 
     @org.springframework.web.bind.annotation.ExceptionHandler(value = CustomException.class)
-    public CommonResult customException(CustomException e) {
-        return responseService.getCustomErrorResult(e);
+    public CommonResult customException(CustomException e, HttpServletRequest request) {
+        return responseService.getCustomErrorResult(e, request);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(value = CustomUniversalException.class)
-    public CommonResult customUniversalException(CustomUniversalException e) {
-        return responseService.getCustomUniversalResult(e);
+    public CommonResult customUniversalException(CustomUniversalException e, HttpServletRequest request) {
+        return responseService.getCustomUniversalResult(e, request);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(value = RuntimeException.class)
-    public CommonResult severErrorException(RuntimeException e) {
-        return responseService.getServerErrorResult(e);
+    public CommonResult severErrorException(RuntimeException e, HttpServletRequest request) {
+        return responseService.getServerErrorResult(e, request);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(value = MethodArgumentTypeMismatchException.class)
     public CommonResult methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e, HttpServletRequest request) {
-        return responseService.getArgumentTypeMismatchResult(e);
+        return responseService.getArgumentTypeMismatchResult(e, request);
     }
 
 }
