@@ -2,13 +2,15 @@ package com.econrich.assignment.common.response;
 
 import com.econrich.assignment.common.exception.CustomException;
 import com.econrich.assignment.common.exception.CustomUniversalException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.List;
 
+@Slf4j
 @Service
-
 public class ResponseService {
 
     // 단일 결과 리턴
@@ -36,6 +38,7 @@ public class ResponseService {
 
 
     public CommonResult getServerErrorResult(RuntimeException exception) {
+        log.error(exception.getMessage());
         CommonResult result = new CommonResult();
         result.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
         result.setCode(500);
@@ -48,6 +51,15 @@ public class ResponseService {
         result.setStatus(exception.getExceptionCode().name() + " : " +  exception.getExceptionCode().getStatus().getReasonPhrase());
         result.setCode(exception.getExceptionCode().getStatus().value());
         result.setMessage(exception.getExceptionCode().getMessage());
+        return result;
+    }
+
+    public CommonResult getArgumentTypeMismatchResult(MethodArgumentTypeMismatchException exception){
+        log.warn(exception.getMessage());
+        CommonResult result = new CommonResult();
+        result.setStatus(HttpStatus.BAD_REQUEST.getReasonPhrase());
+        result.setCode(400);
+        result.setMessage(exception.getMessage());
         return result;
     }
 
