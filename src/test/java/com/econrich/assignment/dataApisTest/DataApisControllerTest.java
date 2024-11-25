@@ -26,8 +26,8 @@ class DataApisControllerTest extends AbstractRestDocsTests {
 
         mockMvc.perform(get("/dataApis/weather")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("si","부산광역시")
-                        .param("gu","중구")
+                        .param("si","서울")
+                        .param("gu","동작구")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andDo(restDocs.document(

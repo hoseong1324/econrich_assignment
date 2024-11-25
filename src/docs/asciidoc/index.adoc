@@ -1,5 +1,6 @@
 
 :toc: left
+:doctype: book
 :toclevels: 4
 :sectnums:
 
@@ -7,196 +8,197 @@
 
 == 국가
 === 국가 전체 조회
-.curl-request
+curl-request
 include::{snippets}/countries-controller-test/get-countries/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/countries-controller-test/get-countries/http-request.adoc[]
 
-.response-body
+response-body
 include::{snippets}/countries-controller-test/get-countries/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/countries-controller-test/get-countries/response-fields.adoc[]
 
 == 위치
 === 위치 전체 조회
-.curl-request
+curl-request
 include::{snippets}/locations-controller-test/get-locations/curl-request.adoc[]
 
-.http-request
+
+http-request
 include::{snippets}/locations-controller-test/get-locations/http-request.adoc[]
 
-.response-body
+response-body
 include::{snippets}/locations-controller-test/get-locations/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/locations-controller-test/get-locations/response-fields.adoc[]
 
 === 특정 위치 조회
-.curl-request
+curl-request
 include::{snippets}/locations-controller-test/get-location/http-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/locations-controller-test/get-location/http-request.adoc[]
 
-.path-parameters
+path-parameter
 include::{snippets}/locations-controller-test/get-location/path-parameters.adoc[]
 
-.response-body
+response-body
 include::{snippets}/locations-controller-test/get-location/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/locations-controller-test/get-location/response-fields.adoc[]
 
 == 지역
 === 지역 전체 조회
-.curl-request
+curl-request
 include::{snippets}/regions-controller-test/get-regions/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/regions-controller-test/get-regions/http-request.adoc[]
 
-.response-body
+response-body
 include::{snippets}/regions-controller-test/get-regions/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/regions-controller-test/get-regions/response-fields.adoc[]
 
 == 직업
 === 특정 사원 직업 이력 조회
-.curl-request
+curl-request
 include::{snippets}/jobs-controller-test/get-jobs-history/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/jobs-controller-test/get-jobs-history/http-request.adoc[]
 
-.path-parameters
+path-parameters
 include::{snippets}/jobs-controller-test/get-jobs-history/path-parameters.adoc[]
 
-.response-body
+response-body
 include::{snippets}/jobs-controller-test/get-jobs-history/response-body.adoc[]
 
-.response-field
+response-field
 include::{snippets}/jobs-controller-test/get-jobs-history/response-fields.adoc[]
 
 === 특정 직업 수정
 
-.curl-request
+curl-request
 include::{snippets}/jobs-controller-test/update-jobs/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/jobs-controller-test/update-jobs/http-request.adoc[]
 
-.path-parameters
+path-parameters
 include::{snippets}/jobs-controller-test/update-jobs/path-parameters.adoc[]
 
-.request-body
+request-body
 include::{snippets}/jobs-controller-test/update-jobs/request-body.adoc[]
 
-.request-fields
+request-fields
 include::{snippets}/jobs-controller-test/update-jobs/request-fields.adoc[]
 
-.response-body
+response-body
 include::{snippets}/jobs-controller-test/update-jobs/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/jobs-controller-test/update-jobs/response-fields.adoc[]
 
 == 부서
 === 부서 전체 조회
 
-.curl-request
+curl-request
 include::{snippets}/departments-controller-test/get-departments/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/departments-controller-test/get-departments/http-request.adoc[]
 
-.response-body
+response-body
 include::{snippets}/departments-controller-test/get-departments/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/departments-controller-test/get-departments/response-fields.adoc[]
 
 === 특정 부서 조회
 
-.curl-request
+curl-request
 include::{snippets}/departments-controller-test/get-department/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/departments-controller-test/get-department/http-request.adoc[]
 
-.path-parameters
+path-parameters
 include::{snippets}/departments-controller-test/get-department/path-parameters.adoc[]
 
-.response-body
+response-body
 include::{snippets}/departments-controller-test/get-department/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/departments-controller-test/get-department/response-fields.adoc[]
 
 == 직원
 === 직원 전체 조회
-.curl-request
+curl-request
 include::{snippets}/employees-controller-test/get-employees/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/employees-controller-test/get-employees/http-request.adoc[]
 
-.response-body
+response-body
 include::{snippets}/employees-controller-test/get-employees/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/employees-controller-test/get-employees/response-fields.adoc[]
 
 === 특정 직원 조회
-.curl-request
+curl-request
 include::{snippets}/employees-controller-test/get-employee/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/employees-controller-test/get-employee/http-request.adoc[]
 
-.path-parameters
+path-parameters
 include::{snippets}/employees-controller-test/get-employee/path-parameters.adoc[]
 
-.response-body
+response-body
 include::{snippets}/employees-controller-test/get-employee/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/employees-controller-test/get-employee/response-fields.adoc[]
 
 === 특정 직원 수정
-.curl-request
+curl-request
 include::{snippets}/employees-controller-test/patch-employee/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/employees-controller-test/patch-employee/http-request.adoc[]
 
-.request-body
+request-body
 include::{snippets}/employees-controller-test/patch-employee/request-body.adoc[]
 
-.request-fields
+request-fields
 include::{snippets}/employees-controller-test/patch-employee/request-fields.adoc[]
 
-.response-body
+response-body
 include::{snippets}/employees-controller-test/patch-employee/response-body.adoc[]
 
-.response-fields
+response-fields
 include::{snippets}/employees-controller-test/patch-employee/response-fields.adoc[]
 
 == 날씨 ( 공공 데이터 포털 API )
 === 날씨 정보 조회
-.curl-request
+curl-request
 include::{snippets}/data-apis-controller-test/get-weather/curl-request.adoc[]
 
-.http-request
+http-request
 include::{snippets}/data-apis-controller-test/get-weather/http-request.adoc[]
 
-.query-parameters
+query-parameters
 include::{snippets}/data-apis-controller-test/get-weather/query-parameters.adoc[]
 
-.response-body
+response-body
 include::{snippets}/data-apis-controller-test/get-weather/response-body.adoc[]
 
-.response-field
+response-field
 include::{snippets}/data-apis-controller-test/get-weather/response-fields.adoc[]

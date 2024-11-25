@@ -66,7 +66,10 @@ public class GetWeatherService {
                                         .build())
                         .retrieve()
                         .bodyToMono(WeatherDto.ReturnWeatherApi.class)
-                        .doOnError(e -> log.error(e.getMessage()))
+                        .doOnError(e -> {
+                            log.error(e.getMessage());
+                            throw new CustomUniversalException(HttpStatus.INTERNAL_SERVER_ERROR, "현재 공공데이터 API 가 원활하지 않습니다. 잠시후에 시도해주세요.");
+                        })
                         .block())
                 .getResponse()
                 .getBody()
