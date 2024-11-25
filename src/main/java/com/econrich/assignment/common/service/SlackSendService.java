@@ -18,32 +18,12 @@ public class SlackSendService {
     @Value("${slack.bot.token}")
     private String botToken;
 
-    private ExchangeFilterFunction logRequest() {
-        return ExchangeFilterFunction.ofRequestProcessor(clientRequest -> {
-            log.info("Request: {} {}", clientRequest.method(), clientRequest.url());
-            clientRequest.headers().forEach((name, values) ->
-                    values.forEach(value -> log.info("Header '{}': {}", name, value))
-            );
-            return reactor.core.publisher.Mono.just(clientRequest);
-        });
-    }
 
-    private ExchangeFilterFunction logResponse() {
-        return ExchangeFilterFunction.ofResponseProcessor(clientResponse -> {
-            log.info("Response status code: {}", clientResponse.statusCode());
-            clientResponse.headers().asHttpHeaders().forEach((name, values) ->
-                    values.forEach(value -> log.info("Header '{}': {}", name, value))
-            );
-            return reactor.core.publisher.Mono.just(clientResponse);
-        });
-    }
 
     @Transactional
     public void sendSlackMessage(HttpServletRequest request, CommonResult result){
 
         WebClient webClient = WebClient.builder()
-                .filter(logRequest())
-                .filter(logResponse())
                 .baseUrl("https://slack.com/api/chat.postMessage")
                 .defaultHeader("Authorization", "Bearer " + botToken)
                 .build();

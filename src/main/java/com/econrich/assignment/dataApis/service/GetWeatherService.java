@@ -8,6 +8,7 @@ import com.econrich.assignment.dataApis.repo.KoreaLocationsCustomRepository;
 import io.micrometer.common.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -44,7 +45,8 @@ public class GetWeatherService {
 
         DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0");
         factory.setEncodingMode(DefaultUriBuilderFactory.EncodingMode.VALUES_ONLY);
-
+        long start = System.currentTimeMillis();
+        log.info("DATA API START {}", start);
         WebClient webClient = WebClient.builder()
                 .baseUrl("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0")
                 .uriBuilderFactory(factory)
@@ -69,6 +71,9 @@ public class GetWeatherService {
                 .getResponse()
                 .getBody()
                 .getItems();
+
+        long end = System.currentTimeMillis();
+        log.info("DATA API END {} || TIME : {}", end, end - start);
 
         return WeatherDto.LocationsSummary.builder()
                 .si(koreaLocations.getSi())
