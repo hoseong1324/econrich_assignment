@@ -30,7 +30,7 @@ public class SlackSendService {
         StringBuilder message = new StringBuilder();
         message.append("===== Slack Start Message =====").append(System.lineSeparator()).append(System.lineSeparator());
         message.append("DispatcherType : ").append(request.getDispatcherType()).append(System.lineSeparator());
-        message.append("URI : ").append(request.getRequestURI()).append(System.lineSeparator());
+        message.append("URL : ").append(request.getRequestURL()).append(System.lineSeparator());
         message.append("status : ").append(result.getStatus()).append(System.lineSeparator());
         message.append("code : ").append(result.getCode()).append(System.lineSeparator());
         message.append("message : ").append(result.getMessage()).append(System.lineSeparator()).append(System.lineSeparator());

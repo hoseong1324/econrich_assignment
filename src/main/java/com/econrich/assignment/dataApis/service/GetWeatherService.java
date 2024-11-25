@@ -73,7 +73,7 @@ public class GetWeatherService {
                 .getItems();
 
         long end = System.currentTimeMillis();
-        log.info("DATA API END {} || TIME : {}", end, end - start);
+        log.info("DATA API END {} || TIME : {}ms", end, end - start);
 
         return WeatherDto.LocationsSummary.builder()
                 .si(koreaLocations.getSi())
