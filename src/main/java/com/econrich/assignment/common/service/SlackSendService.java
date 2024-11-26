@@ -1,12 +1,12 @@
 package com.econrich.assignment.common.service;
 
 import com.econrich.assignment.common.response.CommonResult;
+import com.econrich.assignment.portfolio.dto.PortfolioDto;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.reactive.function.client.ExchangeFilterFunction;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Slf4j
@@ -18,7 +18,35 @@ public class SlackSendService {
     @Value("${slack.bot.token}")
     private String botToken;
 
+    @Transactional
+    public void sendSlackMessageForPortfolio(PortfolioDto.MessageDto messageDto) {
+        WebClient webClient = WebClient.builder()
+                .baseUrl("https://slack.com/api/chat.postMessage")
+                .defaultHeader("Authorization", "Bearer " + botToken)
+                .build();
+        StringBuilder message = new StringBuilder();
+        message.append("===== Portfolio Slack Start Message =====").append(System.lineSeparator()).append(System.lineSeparator());
+        message.append("name : ").append(messageDto.getName()).append(System.lineSeparator());
+        message.append("phone : ").append(messageDto.getPhone()).append(System.lineSeparator());
+        message.append("email : ").append(messageDto.getEmail()).append(System.lineSeparator());
+        message.append("message : ").append(messageDto.getMessage()).append(System.lineSeparator());
+        message.append("===== Portfolio Slack End Message =====").append(System.lineSeparator()).append(System.lineSeparator());
 
+        try {
+            log.info(webClient.post()
+                    .uri(uriBuilder ->
+                            uriBuilder.queryParam("channel", channelId)
+                                    .queryParam("text", message)
+                                    .build()
+                    )
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block());
+        } catch (Exception e){
+            log.error(e.getMessage());
+        }
+
+    }
 
     @Transactional
     public void sendSlackMessage(HttpServletRequest request, CommonResult result){

@@ -1,6 +1,7 @@
 package com.econrich.assignment.employees.entity;
 
 import com.econrich.assignment.departments.entity.Departments;
+import com.econrich.assignment.jobs.entity.JobHistory;
 import com.econrich.assignment.jobs.entity.Jobs;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -34,5 +36,7 @@ public class Employees {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Departments departments;
+    @OneToMany(mappedBy = "embeddableJobHistory.employees")
+    private List<JobHistory> jobHistory;
 
 }
