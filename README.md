@@ -1,4 +1,4 @@
-### econrich assignment
+### portfolio_server
 
 ### env   
 java17     
@@ -10,5 +10,5 @@ AWS RDS - mySql 8.0.2
 http://2hoddy.com:8080
 
 ### API Document
-swagger - http://2hoddy.com:8080/swagger-ui/index.html       
-RestDocs - http://2hoddy.com:8080/docs/index.html
+swagger - https://2hoddy.com:8080/swagger-ui/index.html       
+RestDocs - https://2hoddy.com:8080/docs/index.html
