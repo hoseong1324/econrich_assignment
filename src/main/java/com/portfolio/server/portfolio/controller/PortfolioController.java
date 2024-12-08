@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/portfolio")
+@RequestMapping("/apis/portfolio")
 public class PortfolioController {
 
     private final ResponseService responseService;
