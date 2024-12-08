@@ -10,5 +10,5 @@ AWS RDS - mySql 8.0.2
 https://2hoddy.com
 
 ### API Document
-swagger - https://2hoddy.com:8080/swagger-ui/index.html       
-RestDocs - https://2hoddy.com:8080/docs/index.html
+swagger - https://2hoddy.com/swagger-ui/index.html       
+RestDocs - https://2hoddy.com/docs/index.html
