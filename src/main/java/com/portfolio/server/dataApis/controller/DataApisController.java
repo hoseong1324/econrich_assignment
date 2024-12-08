@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/dataApis")
+@RequestMapping("/apis/dataApis")
 @RequiredArgsConstructor
 @RestController
 @Tag(name = "007.공공데이터", description = "공공데이터 활용 API")
