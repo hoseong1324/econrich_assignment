@@ -18,7 +18,7 @@ class DataApisControllerTest extends AbstractRestDocsTests {
     @Transactional
     void getWeather() throws Exception {
 
-        mockMvc.perform(get("/dataApis/weather")
+        mockMvc.perform(get("/apis/dataApis/weather")
                         .contentType(MediaType.APPLICATION_JSON)
                         .param("si","서울")
                         .param("gu","동작구")
